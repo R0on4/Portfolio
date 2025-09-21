@@ -59,3 +59,4 @@ body { font-family:'Segoe UI', Tahoma, sans-serif; background: linear-gradient(1
 
 /* RESPONSIVE */
 @media(max-width:640px){ .todo-inputs { flex-direction:column; } .todo-inputs button{width:100%;} }
+    
