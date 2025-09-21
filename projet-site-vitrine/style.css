@@ -1,0 +1,61 @@
+body {
+  font-family:'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg,#fefce8,#dbeafe);
+  margin:0; padding:0; color:#1f2937; scroll-behavior:smooth;
+}
+
+/* MENU FLOTTANT */
+#menuToggle {
+  position: fixed; top:20px; left:20px; background:#2563eb; color:white;
+  padding:12px 18px; border-radius:12px; cursor:pointer; z-index:1001;
+  font-weight:bold; box-shadow:0 8px 20px rgba(37,99,235,0.3);
+  transition:0.3s, transform 0.2s;
+}
+#menuToggle:hover { background:#1e40af; transform:scale(1.1); }
+
+#sideMenu {
+  position: fixed; top:0; left:-260px; width:260px; height:100%;
+  background:#2563eb; display:flex; flex-direction:column; padding:100px 20px; transition:0.4s; z-index:1000;
+}
+#sideMenu a {
+  color:white; padding:14px; margin:6px 0; border-radius:10px;
+  text-decoration:none; font-weight:600; transition:0.3s, transform 0.2s;
+}
+#sideMenu a:hover { background:#1e40af; transform:translateX(6px); }
+#sideMenu.open { left:0; }
+
+/* HEADER */
+.header { text-align:center; padding:100px 20px 50px; }
+.header .title { font-size:3rem; color:#2563eb; margin-bottom:15px; animation:fadeInDown 1s ease forwards; }
+.header .subtitle { font-size:1.3rem; color:#1e293b; animation:fadeInUp 1s ease forwards; }
+
+/* SECTIONS */
+.about-section, .features-section, .reservation-section {
+  max-width:900px; margin:0 auto; padding:40px 20px; background:white; border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1); margin-bottom:40px; text-align:center;
+}
+
+.features-container {
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+}
+.feature-card {
+  background:linear-gradient(145deg,#ffffff,#f0f9ff);
+  border-radius:15px; padding:20px; width:250px; box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:0.3s, transform 0.2s;
+  opacity:0; transform:translateY(40px);
+}
+.feature-card.show { opacity:1; transform:translateY(0); transition:0.6s ease-out; }
+.feature-card:hover { transform:translateY(-8px) scale(1.03); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
+
+.btn {
+  padding:12px 25px; border:none; border-radius:12px; background:#16a34a; color:white;
+  font-weight:bold; cursor:pointer; transition:0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.btn:hover { background:#15803d; transform:scale(1.05); box-shadow:0 8px 20px rgba(22,163,74,0.3); }
+
+/* ANIMATIONS */
+@keyframes fadeInDown { from{opacity:0; transform:translateY(-30px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+
+/* RESPONSIVE */
+@media(max-width:768px){ .features-container { flex-direction:column; align-items:center; } }

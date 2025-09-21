@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Aaron Prin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu flottant -->
+  <div id="menuToggle">☰</div>
+  <nav id="sideMenu" aria-hidden="true">
+    <a href="index.html">Portfolio</a>
+    <a href="../projet-site-vitrine/index.html">Site Vitrine</a>
+    <a href="../projet-todo/index.html">Todo App</a>
+    <a href="../projet-python/index.html">Script Python</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="title" id="typedTitle"></h1>
+    <p class="subtitle">Développeur Web & Projets Dynamiques</p>
+  </header>
+
+  <!-- BIO -->
+  <section class="bio-section">
+    <h2>À propos de moi</h2>
+    <p>Je suis Aaron, un jeune étudiant de 18 ans originaire de France, actuellement au Québec pour mes études.  
+       J'adore coder et développer des projets web. Je parle français et anglais, et je suis toujours curieux d'apprendre de nouvelles technologies.</p>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section class="skills-section">
+    <h2>Compétences</h2>
+    <div class="skill">
+      <span>HTML & CSS</span>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill">
+      <span>JavaScript</span>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill">
+      <span>Python</span>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section class="projects-section">
+    <h2>Mes Projets</h2>
+    <div class="projects-container">
+      <div class="project-card" data-type="web">
+        <h3>Site Vitrine</h3>
+        <p>Exemple de site vitrine moderne et interactif.</p>
+        <div class="buttons"><a href="../projet-site-vitrine/index.html" class="btn">Voir le projet</a></div>
+      </div>
+      <div class="project-card" data-type="web">
+        <h3>Todo App</h3>
+        <p>Gestion des tâches avec minuterie, notifications et priorités.</p>
+        <div class="buttons"><a href="../projet-todo/index.html" class="btn">Voir le projet</a></div>
+      </div>
+      <div class="project-card" data-type="python">
+        <h3>Script Python</h3>
+        <p>Affichage et téléchargement de script Python depuis le navigateur.</p>
+        <div class="buttons"><a href="../projet-python/index.html" class="btn">Voir le projet</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aaronprin44@gmail.com">aaronprin44@gmail.com</a></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

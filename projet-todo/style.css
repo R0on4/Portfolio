@@ -1,0 +1,61 @@
+/* RESET & FONT */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Tahoma, sans-serif; background: linear-gradient(135deg,#dbeafe,#fef3c7); color:#1f2937; min-height:100vh; overflow-x:hidden; transition:0.3s; }
+
+/* MENU FLOTTANT */
+#menuToggle {
+  position: fixed; top:20px; left:20px; background:#2563eb; color:white;
+  padding:10px 15px; border-radius:10px; cursor:pointer; z-index:1001; font-weight:bold;
+  box-shadow:0 6px 18px rgba(37,99,235,0.2); transition:0.3s, transform 0.2s;
+}
+#menuToggle:hover { background:#1e40af; transform:scale(1.05); }
+#sideMenu {
+  position: fixed; top:0; left:-260px; width:260px; height:100%; background:#2563eb;
+  display:flex; flex-direction:column; padding:80px 20px; transition:0.4s ease-in-out; z-index:1000;
+}
+#sideMenu a { color:white; padding:12px; border-radius:8px; margin:5px 0; text-decoration:none; font-weight:600; transition:0.3s, transform 0.2s; }
+#sideMenu a:hover { background:#1e40af; transform:translateX(5px); }
+#sideMenu.open { left:0; }
+
+/* HEADER */
+.header { text-align:center; padding:80px 20px 40px; }
+.header .title { font-size:2.8rem; color:#2563eb; margin-bottom:10px; transition:0.5s; }
+.header .subtitle { font-size:1.2rem; color:#1e293b; margin-bottom:20px; transition:0.5s; }
+
+/* TODO SECTION */
+.todo-section { max-width:700px; margin:0 auto; padding:20px; }
+.todo-inputs { display:flex; gap:10px; margin-bottom:20px; }
+.todo-inputs input, .todo-inputs select { flex:1; padding:10px; border-radius:10px; border:1px solid #ccc; font-size:1rem; transition:0.3s; }
+.todo-inputs input:focus, .todo-inputs select:focus { border-color:#2563eb; box-shadow:0 0 8px rgba(37,99,235,0.3); }
+.todo-inputs button { padding:10px 15px; border:none; border-radius:10px; background:#16a34a; color:white; font-weight:bold; cursor:pointer; transition:0.3s, transform 0.2s; }
+.todo-inputs button:hover { background:#15803d; transform:translateY(-2px) scale(1.05); }
+
+/* TASK CARDS */
+.tasks-container { display:flex; flex-direction:column; gap:15px; margin-bottom:30px; }
+.task-card {
+  background:white; padding:15px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.1); 
+  display:flex; justify-content:space-between; align-items:center; transition:0.4s, transform 0.3s, box-shadow 0.3s; 
+  opacity:0; transform:translateY(20px);
+  animation:fadeInUp 0.5s forwards;
+}
+@keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+.task-card.basse { border-left:5px solid #10b981; }
+.task-card.moyenne { border-left:5px solid #fbbf24; }
+.task-card.haute { border-left:5px solid #f43f5e; }
+.task-card:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
+.task-info { display:flex; flex-direction:column; transition:0.3s; }
+
+/* TASK BUTTONS */
+.task-buttons button { margin-left:5px; padding:5px 10px; border:none; border-radius:8px; cursor:pointer; transition:0.3s, transform 0.2s; }
+.task-buttons button:hover { transform:scale(1.1); }
+.btn-terminate { background:#f43f5e; color:white; }
+.btn-pause { background:#fbbf24; color:white; }
+.btn-start { background:#16a34a; color:white; }
+.btn-delete { background:#2563eb; color:white; }
+
+/* NOTIFICATIONS */
+.notification { position:fixed; top:20px; right:20px; background:#2563eb; color:white; padding:10px 20px; border-radius:10px; box-shadow:0 6px 18px rgba(37,99,235,0.2); opacity:0; transition:0.5s, transform 0.5s; z-index:1000; transform:translateY(-20px);}
+.notification.show { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:640px){ .todo-inputs { flex-direction:column; } .todo-inputs button{width:100%;} }

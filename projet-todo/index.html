@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App - Aaron Prin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu flottant -->
+  <div id="menuToggle">☰</div>
+  <nav id="sideMenu" aria-hidden="true">
+    <a href="../portfolio/index.html">Portfolio</a>
+    <a href="../projet-site-vitrine/index.html">Site Vitrine</a>
+    <a href="index.html">Todo App</a>
+    <a href="../projet-python/index.html">Script Python</a>
+  </nav>
+
+  <header class="header">
+    <h1 class="title">Todo App </h1>
+    <p class="subtitle">Gérez vos tâches avec priorité, minuterie et historique.</p>
+  </header>
+
+  <section class="todo-section">
+    <div class="todo-inputs">
+      <input type="text" id="taskInput" placeholder="Nouvelle tâche">
+      <input type="number" id="taskMinutes" placeholder="Minutes" min="0" max="60">
+      <select id="taskPriority">
+        <option value="basse">Basse</option>
+        <option value="moyenne">Moyenne</option>
+        <option value="haute">Haute</option>
+      </select>
+      <button id="addTaskBtn" class="btn">Ajouter</button>
+    </div>
+
+    <div id="tasksContainer" class="tasks-container"></div>
+    <h2>Tâches Terminées</h2>
+    <div id="completedTasks" class="tasks-container"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
