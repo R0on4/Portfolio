@@ -3,41 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo App - Aaron Prin</title>
+  <title>Todo App — Aaron Prin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Menu flottant -->
-  <div id="menuToggle">☰</div>
-  <nav id="sideMenu" aria-hidden="true">
-    <a href="../index.html">Portfolio</a>
-    <a href="../projet-site-vitrine/index.html">Site Vitrine</a>
-    <a href="index.html">Todo App</a>
-    <a href="../projet-python/index.html">Script Python</a>
+  <!-- NAV -->
+  <nav class="snav">
+    <a href="../index.html" class="snav__logo" title="Retour au portfolio">AP</a>
+    <div class="snav__links" id="snav-links">
+      <a href="../index.html" class="snav__link">Portfolio</a>
+      <a href="../projet-site-vitrine/index.html" class="snav__link">Site Vitrine</a>
+      <a href="index.html" class="snav__link current">Todo App</a>
+      <a href="../projet-python/index.html" class="snav__link">Script Python</a>
+    </div>
+    <button class="snav__toggle" id="snav-toggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <header class="header">
-    <h1 class="title">Todo App </h1>
-    <p class="subtitle">Gérez vos tâches avec priorité, minuterie et historique.</p>
+  <!-- EN-TÊTE -->
+  <header class="page-header">
+    <span class="page-header__tag">Application Web</span>
+    <h1 class="page-header__title">Todo App</h1>
+    <p class="page-header__sub">Gérez vos tâches avec priorités, minuteur intégré et historique persistant.</p>
   </header>
 
-  <section class="todo-section">
-    <div class="todo-inputs">
-      <input type="text" id="taskInput" placeholder="Nouvelle tâche">
-      <input type="number" id="taskMinutes" placeholder="Minutes" min="0" max="60">
-      <select id="taskPriority">
-        <option value="basse">Basse</option>
-        <option value="moyenne">Moyenne</option>
-        <option value="haute">Haute</option>
-      </select>
-      <button id="addTaskBtn" class="btn">Ajouter</button>
-    </div>
+  <main class="todo-main">
+    <div class="container">
 
-    <div id="tasksContainer" class="tasks-container"></div>
-    <h2>Tâches Terminées</h2>
-    <div id="completedTasks" class="tasks-container"></div>
-  </section>
+      <!-- FORMULAIRE D'AJOUT -->
+      <div class="todo-form card">
+        <h2 class="todo-form__title">Nouvelle tâche</h2>
+        <div class="todo-form__fields">
+          <div class="field-group field-group--grow">
+            <label for="taskInput" class="field-label">Tâche</label>
+            <input type="text" id="taskInput" class="field-input" placeholder="Que faut-il faire ?" autocomplete="off">
+          </div>
+          <div class="field-group">
+            <label for="taskMinutes" class="field-label">Durée (min)</label>
+            <input type="number" id="taskMinutes" class="field-input field-input--sm" placeholder="0" min="0" max="120">
+          </div>
+          <div class="field-group">
+            <label for="taskPriority" class="field-label">Priorité</label>
+            <select id="taskPriority" class="field-input field-select">
+              <option value="basse">🟢 Basse</option>
+              <option value="moyenne" selected>🟡 Moyenne</option>
+              <option value="haute">🔴 Haute</option>
+            </select>
+          </div>
+        </div>
+        <button id="addTaskBtn" class="btn btn--primary">+ Ajouter</button>
+      </div>
+
+      <!-- TÂCHES EN COURS -->
+      <div class="tasks-section">
+        <div class="tasks-section__header">
+          <h2 class="tasks-section__title">En cours <span id="active-count" class="count-badge">0</span></h2>
+        </div>
+        <div id="tasksContainer" class="tasks-container">
+          <p class="tasks-empty" id="empty-active">Aucune tâche pour l'instant. Ajoutez-en une !</p>
+        </div>
+      </div>
+
+      <!-- TÂCHES TERMINÉES -->
+      <div class="tasks-section tasks-section--done">
+        <div class="tasks-section__header">
+          <h2 class="tasks-section__title">Terminées <span id="done-count" class="count-badge count-badge--done">0</span></h2>
+          <button id="clearDoneBtn" class="btn btn--secondary btn--sm">Tout effacer</button>
+        </div>
+        <div id="completedTasks" class="tasks-container">
+          <p class="tasks-empty" id="empty-done">Aucune tâche terminée.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <a href="../index.html" class="back-link">← Retour au portfolio</a>
+
+  <div id="notif-container" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
