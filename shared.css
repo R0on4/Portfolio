@@ -1,0 +1,223 @@
+/* ============================================
+   SHARED STYLES — sous-projets
+   Utilisé par projet-site-vitrine, projet-todo, projet-python
+   ============================================ */
+:root {
+  --bg:        #0b0f1a;
+  --bg-2:      #111827;
+  --bg-card:   rgba(255,255,255,0.04);
+  --border:    rgba(255,255,255,0.08);
+  --text:      #e2e8f0;
+  --text-muted:#94a3b8;
+  --accent:    #6366f1;
+  --accent-2:  #818cf8;
+  --accent-glow: rgba(99,102,241,0.25);
+  --green:     #10b981;
+  --yellow:    #f59e0b;
+  --red:       #f43f5e;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-pill: 9999px;
+  --ease: 0.3s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: var(--radius-pill); }
+
+/* ---- SHARED NAV ---- */
+.snav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(11,15,26,0.9);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.snav__logo {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 0.82rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+.snav__links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.snav__link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--ease);
+  white-space: nowrap;
+}
+.snav__link:hover, .snav__link.current { color: #fff; }
+.snav__link.current {
+  color: var(--accent-2);
+}
+.snav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none; border: none;
+  cursor: pointer; padding: 0.4rem;
+}
+.snav__toggle span {
+  display: block; width: 22px; height: 2px;
+  background: var(--text);
+  border-radius: var(--radius-pill);
+  transition: var(--ease);
+}
+.snav__toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.snav__toggle.active span:nth-child(2) { opacity: 0; }
+.snav__toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- SHARED PAGE HEADER ---- */
+.page-header {
+  text-align: center;
+  padding: 4rem 1.5rem 2.5rem;
+  position: relative;
+}
+.page-header__tag {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: rgba(99,102,241,.12);
+  border: 1px solid rgba(99,102,241,.25);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 0.75rem;
+}
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+.page-header__sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ---- SHARED CONTAINER ---- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---- SHARED BUTTONS ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem; font-weight: 500;
+  cursor: pointer; border: none;
+  transition: var(--ease);
+}
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  color: #fff;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(99,102,241,.4); }
+.btn--secondary {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn--secondary:hover { border-color: var(--accent-2); color: var(--accent-2); transform: translateY(-2px); }
+
+/* ---- SHARED CARD ---- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: border-color var(--ease), transform var(--ease);
+}
+.card:hover { border-color: rgba(99,102,241,.35); }
+
+/* ---- NOTIFICATIONS ---- */
+#notif-container {
+  position: fixed; top: 1.25rem; right: 1.25rem;
+  z-index: 9999;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  pointer-events: none;
+}
+.notif {
+  padding: 0.8rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem; font-weight: 500;
+  backdrop-filter: blur(12px);
+  pointer-events: all;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  max-width: 280px;
+}
+.notif.show { transform: translateX(0); opacity: 1; }
+.notif.hide { transform: translateX(120%); opacity: 0; }
+.notif--success { background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.3); color: var(--green); }
+.notif--error   { background: rgba(244,63,94,.12); border: 1px solid rgba(244,63,94,.3); color: #f87171; }
+.notif--info    { background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.3); color: var(--accent-2); }
+
+/* ---- FOOTER BACK LINK ---- */
+.back-link {
+  display: block;
+  text-align: center;
+  padding: 2.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  transition: color var(--ease);
+}
+.back-link:hover { color: var(--accent-2); }
+
+/* ---- RESPONSIVE NAV ---- */
+@media (max-width: 640px) {
+  .snav__links {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.75rem; font-size: 1.15rem;
+    transform: translateX(100%);
+    transition: transform var(--ease);
+    z-index: 99;
+  }
+  .snav__links.open { transform: translateX(0); }
+  .snav__toggle { display: flex; z-index: 100; }
+  .snav__logo { z-index: 100; position: relative; }
+}

@@ -3,55 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Vitrine Exemple</title>
+  <title>Site Vitrine — Aaron Prin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- MENU FLOTTANT -->
-  <div id="menuToggle">☰</div>
-  <nav id="sideMenu" aria-hidden="true">
-    <a href="../index.html">Portfolio</a>
-    <a href="index.html">Site Vitrine</a>
-    <a href="../projet-todo/index.html">Todo App</a>
-    <a href="../projet-python/index.html">Script Python</a>
+  <!-- NAV -->
+  <nav class="snav">
+    <a href="../index.html" class="snav__logo" title="Retour au portfolio">AP</a>
+    <div class="snav__links" id="snav-links">
+      <a href="../index.html" class="snav__link">Portfolio</a>
+      <a href="index.html" class="snav__link current">Site Vitrine</a>
+      <a href="../projet-todo/index.html" class="snav__link">Todo App</a>
+      <a href="../projet-python/index.html" class="snav__link">Script Python</a>
+    </div>
+    <button class="snav__toggle" id="snav-toggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1 class="title">Exemple Site Vitrine</h1>
-    <p class="subtitle">Projet dynamique et moderne pour présentation</p>
+  <!-- HERO DE LA PAGE -->
+  <header class="page-header">
+    <span class="page-header__tag">Projet Web</span>
+    <h1 class="page-header__title">Site Vitrine</h1>
+    <p class="page-header__sub">Un exemple de site de présentation professionnel — design moderne, animations fluides, 100% responsive.</p>
   </header>
 
-  <!-- SECTIONS -->
-  <section class="about-section">
-    <h2>À propos</h2>
-    <p>Ce site vitrine est un exemple moderne et esthétique pour présenter un projet ou une activité.  
-       Animations, navigation fluide et responsive design sont intégrés pour une expérience utilisateur optimale.</p>
-  </section>
+  <main>
+    <!-- À PROPOS DU PROJET -->
+    <section class="section-about">
+      <div class="container">
+        <div class="card reveal-card">
+          <h2 class="section-title">À propos du projet</h2>
+          <p>Ce site vitrine est un exemple complet démontrant comment concevoir une présentation professionnelle avec uniquement HTML, CSS et JavaScript vanilla. Il intègre des animations d'entrée, une navigation fluide et un design entièrement adaptatif.</p>
+        </div>
+      </div>
+    </section>
 
-  <section class="features-section">
-    <h2>Fonctionnalités</h2>
-    <div class="features-container">
-      <div class="feature-card">
-        <h3>Design moderne</h3>
-        <p>Cartes et sections animées pour un rendu professionnel.</p>
+    <!-- FONCTIONNALITÉS -->
+    <section class="section-features">
+      <div class="container">
+        <h2 class="section-title center">Fonctionnalités</h2>
+        <div class="features-grid">
+          <div class="feature-card reveal-card">
+            <div class="feature-card__icon">✨</div>
+            <h3>Design moderne</h3>
+            <p>Cartes, gradients et animations soignées pour un rendu professionnel et mémorable.</p>
+          </div>
+          <div class="feature-card reveal-card">
+            <div class="feature-card__icon">🧭</div>
+            <h3>Navigation fluide</h3>
+            <p>Défilement doux et navigation intuitive pour une expérience utilisateur optimale.</p>
+          </div>
+          <div class="feature-card reveal-card">
+            <div class="feature-card__icon">📱</div>
+            <h3>100% Responsive</h3>
+            <p>Compatible mobile, tablette et desktop grâce à un design mobile-first.</p>
+          </div>
+          <div class="feature-card reveal-card">
+            <div class="feature-card__icon">⚡</div>
+            <h3>Performance</h3>
+            <p>Zéro dépendance externe — chargement instantané grâce au JavaScript vanilla.</p>
+          </div>
+          <div class="feature-card reveal-card">
+            <div class="feature-card__icon">🎨</div>
+            <h3>Animations CSS</h3>
+            <p>Transitions et keyframes CSS pour des effets fluides sans librairie tierce.</p>
+          </div>
+          <div class="feature-card reveal-card">
+            <div class="feature-card__icon">♿</div>
+            <h3>Accessibilité</h3>
+            <p>Attributs ARIA, contraste suffisant et navigation clavier pour tous les utilisateurs.</p>
+          </div>
+        </div>
       </div>
-      <div class="feature-card">
-        <h3>Navigation fluide</h3>
-        <p>Menu flottant pour passer rapidement d'une section à l'autre.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Responsive</h3>
-        <p>Compatible mobile, tablette et desktop.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="reservation-section">
-    <h2>Bouton d’exemple</h2>
-    <button id="exampleBtn" class="btn">Exemple de bouton</button>
-  </section>
+    <!-- DÉMO INTERACTIVE -->
+    <section class="section-demo">
+      <div class="container">
+        <div class="demo-box reveal-card">
+          <h2 class="section-title">Démo interactive</h2>
+          <p>Cliquez sur le bouton ci-dessous pour voir une interaction en temps réel.</p>
+          <div class="demo-actions">
+            <button id="demo-btn" class="btn btn--primary">Lancer la démo ✨</button>
+            <button id="reset-btn" class="btn btn--secondary" style="display:none">Réinitialiser</button>
+          </div>
+          <div id="demo-result" class="demo-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK TECHNIQUE -->
+    <section class="section-stack">
+      <div class="container">
+        <h2 class="section-title center">Stack technique</h2>
+        <div class="stack-grid">
+          <div class="stack-item reveal-card"><span>HTML5</span></div>
+          <div class="stack-item reveal-card"><span>CSS3</span></div>
+          <div class="stack-item reveal-card"><span>JavaScript</span></div>
+          <div class="stack-item reveal-card"><span>Flexbox</span></div>
+          <div class="stack-item reveal-card"><span>CSS Grid</span></div>
+          <div class="stack-item reveal-card"><span>Intersection Observer</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="../index.html" class="back-link">← Retour au portfolio</a>
+
+  <div id="notif-container" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>

@@ -3,29 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Script Python - Aaron Prin</title>
+  <title>Script Python — Aaron Prin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div id="menuToggle">☰</div>
-  <nav id="sideMenu" aria-hidden="true">
-    <a href="../index.html">Portfolio</a>
-    <a href="../projet-site-vitrine/index.html">Site Vitrine</a>
-    <a href="../projet-todo/index.html">Todo App</a>
-    <a href="index.html">Script Python</a>
+  <!-- NAV -->
+  <nav class="snav">
+    <a href="../index.html" class="snav__logo" title="Retour au portfolio">AP</a>
+    <div class="snav__links" id="snav-links">
+      <a href="../index.html" class="snav__link">Portfolio</a>
+      <a href="../projet-site-vitrine/index.html" class="snav__link">Site Vitrine</a>
+      <a href="../projet-todo/index.html" class="snav__link">Todo App</a>
+      <a href="index.html" class="snav__link current">Script Python</a>
+    </div>
+    <button class="snav__toggle" id="snav-toggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <header class="header">
-    <h1 class="title">Script Python</h1>
-    <p class="subtitle">Mini gestionnaire de contacts pour montrer mes compétences Python</p>
+  <!-- EN-TÊTE -->
+  <header class="page-header">
+    <span class="page-header__tag">Script Python</span>
+    <h1 class="page-header__title">Gestionnaire de contacts</h1>
+    <p class="page-header__sub">Un script Python démontrant la gestion de données, la recherche et l'export CSV.</p>
   </header>
 
-  <section class="script-section">
-    <button id="showCodeBtn" class="btn">Afficher le code</button>
-    <button id="downloadBtn" class="btn">Télécharger le script</button>
-    <pre id="codeContainer" style="display:none;"></pre>
-  </section>
+  <main>
+    <div class="container">
+
+      <!-- INFOS DU PROJET -->
+      <div class="project-info">
+        <div class="info-card card">
+          <div class="info-card__icon">🐍</div>
+          <div>
+            <h3>Langage</h3>
+            <p>Python 3</p>
+          </div>
+        </div>
+        <div class="info-card card">
+          <div class="info-card__icon">📋</div>
+          <div>
+            <h3>Fonctions</h3>
+            <p>4 fonctions principales</p>
+          </div>
+        </div>
+        <div class="info-card card">
+          <div class="info-card__icon">📁</div>
+          <div>
+            <h3>Format</h3>
+            <p>Export CSV</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FONCTIONNALITÉS -->
+      <div class="features-list card">
+        <h2 class="features-list__title">Ce que fait le script</h2>
+        <ul>
+          <li><span class="feat-icon">➕</span> Ajouter des contacts (nom, email, téléphone)</li>
+          <li><span class="feat-icon">📋</span> Afficher tous les contacts</li>
+          <li><span class="feat-icon">🔍</span> Rechercher un contact par nom</li>
+          <li><span class="feat-icon">💾</span> Exporter les contacts en fichier CSV</li>
+        </ul>
+      </div>
+
+      <!-- CODE VIEWER -->
+      <div class="code-section card">
+        <div class="code-section__header">
+          <div class="code-section__title">
+            <span class="code-dot code-dot--red"></span>
+            <span class="code-dot code-dot--yellow"></span>
+            <span class="code-dot code-dot--green"></span>
+            <span class="code-section__filename">contacts_manager.py</span>
+          </div>
+          <div class="code-section__actions">
+            <button id="showCodeBtn" class="btn btn--secondary">👁 Afficher le code</button>
+            <button id="downloadBtn" class="btn btn--primary">⬇ Télécharger</button>
+          </div>
+        </div>
+        <pre id="codeContainer" class="code-pre" aria-live="polite" hidden></pre>
+      </div>
+
+    </div>
+  </main>
+
+  <a href="../index.html" class="back-link">← Retour au portfolio</a>
+
+  <div id="notif-container" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
